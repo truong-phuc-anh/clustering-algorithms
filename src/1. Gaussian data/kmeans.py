@@ -13,10 +13,15 @@ n_clusters = 2
 x, y = make_blobs(n_samples=n_samples, n_features=n_clusters, centers=n_clusters, random_state=random_state)
 
 # lable using KMeans
-result = KMeans(n_clusters=n_clusters, random_state=random_state).fit_predict(x)
+cluster = KMeans(n_clusters=n_clusters, random_state=random_state)
+result = cluster.fit_predict(x)
+
+centers = cluster.cluster_centers_
+print(centers)
 
 # visualize
 plt.figure()
 plt.scatter(x[:, 0], x[:, 1], c=result)
+plt.scatter(centers[:,0], centers[:, 1])
 
 plt.show()

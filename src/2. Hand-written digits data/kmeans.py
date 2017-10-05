@@ -11,8 +11,8 @@ digits = load_digits()
 
 # label using kmeans cluster
 n_digits = 10
-kmeans = KMeans(n_clusters = n_digits)
-labels = kmeans.fit_predict(digits.data)
+cluster = KMeans(n_clusters = n_digits)
+labels = cluster.fit_predict(digits.data)
 
 # result:
 print("Result")
