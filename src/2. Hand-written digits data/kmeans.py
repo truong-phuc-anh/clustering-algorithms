@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 from sklearn.cluster import KMeans
 from sklearn.datasets import load_digits
-
+from sklearn.decomposition import PCA
 # load data
 digits = load_digits()
 
@@ -17,14 +17,14 @@ labels = cluster.fit_predict(digits.data)
 # result:
 print("Result")
 df = pd.DataFrame({'Labels':labels,'Truth labels':digits.target})
+print(df)
 ct = pd.crosstab(df['Labels'],df['Truth labels'])
 print(ct)
 print("-----------------------------------------------------------------")
 
-# Ex. 
-num = 2
-print 'label predit: ', labels[num]
-print 'expected label: ', digits.target[num]
-plt.gray()
-plt.matshow(digits.images[num])
+# visualize
+pca_converter = PCA(n_components = 2)
+# convert digits data to 2D points
+data_2d = pca_converter.fit_transform(digits.data)
+plt.scatter(data_2d[:,0], data_2d[:,1], c=labels)
 plt.show()

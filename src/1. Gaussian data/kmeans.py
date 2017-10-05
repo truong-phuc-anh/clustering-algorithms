@@ -16,8 +16,8 @@ x, y = make_blobs(n_samples=n_samples, n_features=n_clusters, centers=n_clusters
 cluster = KMeans(n_clusters=n_clusters, random_state=random_state)
 result = cluster.fit_predict(x)
 
+# get centers of clusters
 centers = cluster.cluster_centers_
-print(centers)
 
 # visualize
 plt.figure()
