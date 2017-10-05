@@ -1,5 +1,5 @@
 # Created by Truong Phuc Anh (14520040@gm.uit.edu.vn)
-# Simple 
+# Simple implementation of Kmeans cluster
 
 import matplotlib.pyplot as plt
 
