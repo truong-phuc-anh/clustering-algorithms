@@ -15,6 +15,7 @@ cluster = KMeans(n_clusters = n_digits)
 labels = cluster.fit_predict(digits.data)
 
 # result:
+print("-----------------------------------------------------------------")
 print("Result")
 df = pd.DataFrame({'Labels':labels,'Truth labels':digits.target})
 print(df)
