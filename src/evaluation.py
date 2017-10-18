@@ -4,8 +4,24 @@ from sklearn                import metrics      # calculating evaluation
 from sklearn.decomposition  import PCA          # compression data to 2d
 
 def evaluate_clustering(cluster, name, data, labels_true):
-    print(75 * '-')
-    print('cluster\t\ttime\tinertia\thomo\tcompl\tv-meas\tARI\tAMI')
+    """Evalueate a clustering algorithm with some measure.
+    
+    Measures : Homogeneity, Completeness, V-measure, Adjusted Random, Adjusted Mutual Information.
+
+    Parameters
+    ----------
+    cluster : one of sklearn.cluster object
+        The cluster object
+
+    name : string
+        The name of cluster object used for displaying only.
+
+    data : array
+        The list of samples need to be clustered
+
+    labels_true : 1D arry (size = number of samples)
+        The ground truth labels
+    """
 
     # Cluster
     start_time = time()

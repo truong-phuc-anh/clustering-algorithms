@@ -18,4 +18,6 @@ print ('feature space   : %id' % n_features)
 
 # 2. Clustering and evaluating
 kmeans_cluster = KMeans(n_clusters = n_clusters)
+print(75 * '-')
+print('cluster\t\ttime\tinertia\thomo\tcompl\tv-meas\tARI\tAMI')
 evaluate_clustering(kmeans_cluster, "kmeans", data, labels_true)
