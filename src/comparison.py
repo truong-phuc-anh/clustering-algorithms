@@ -29,25 +29,26 @@ def cluster_and_compare(n_clusters, data, labels_true):
     pca_converter = PCA(n_components = 2)
     data = pca_converter.fit_transform(data)
 
-    plt.figure()
-    plt.title('True labels')
-    plt.scatter(data[:,0], data[:,1], c = labels_true)
-    
-    plt.figure()
-    plt.title('Kmeans labels')
-    plt.scatter(data[:,0], data[:,1], c = kmeans_labels)
+    fig = plt.figure()
+    ax = fig.add_subplot(1, 5, 1)
+    ax.scatter(data[:,0], data[:,1], c = labels_true)
+    ax.set_title('data')
 
-    plt.figure()
-    plt.title('Spectral labels')
-    plt.scatter(data[:,0], data[:,1], c = spectral_labels)
-    
-    plt.figure()
-    plt.title('DBSCAN labels')
-    plt.scatter(data[:,0], data[:,1], c = dbscan_labels)
-    
-    plt.figure()
-    plt.title('Agglomerative labels')
-    plt.scatter(data[:,0], data[:,1], c = agg_labels)
+    ax = fig.add_subplot(1, 5, 2)
+    ax.scatter(data[:,0], data[:,1], c = kmeans_labels)
+    ax.set_title('kmeans')
+
+    ax = fig.add_subplot(1, 5, 3)
+    ax.scatter(data[:,0], data[:,1], c = spectral_labels)
+    ax.set_title('spectral')
+
+    ax = fig.add_subplot(1, 5, 4)
+    ax.scatter(data[:,0], data[:,1], c = dbscan_labels)
+    ax.set_title('dbscan')
+
+    ax = fig.add_subplot(1, 5, 5)
+    ax.scatter(data[:,0], data[:,1], c = agg_labels)
+    ax.set_title('agglomerative')
 
     plt.show()
 
